@@ -44,13 +44,8 @@ mixpanel.init("0513c7cecbe7663800c58569efbc4275");</script><!-- end Mixpanel -->
 <div align="right">
   <a href="/">Home</a>
   <a href="/archive">Archive</a>
-  <a href="/about">About</a>
-
   <a href= "https://www.linkedin.com/profile/view?id=94048952&trk=nav_responsive_tab_profile" target="_blank">LinkedIn</a>
-  <a href= "https://onedrive.live.com/redir?resid=5A5E73371630DFBB%212500" target="_blank">CV</a>
    <a href= "https://github.com/msaroufim" target="_blank">Github </a>
-  <a href= "https://www.goodreads.com/user/show/35150018-mark-saroufim">Reading List</a>
-  <a href="https://www.youtube.com/watch?v=rdxfx1mM_nU" target="_blank">Standup</a>
   </nav>
 </div>
 <script>
@@ -96,18 +91,18 @@ mixpanel.track('page viewed', {
 
 <div class="row-fluid">
     <div class="span8">
-        <h1 id="color_theory_and_the_theory_of_computation">Color Theory and The Theory of Computation</h1>
+        <h1 id="color-theory-and-the-theory-of-computation">Color Theory and The Theory of Computation</h1>
 
 <p>Over the past few months I’ve been trying to train my eye to appreciate better design. People tend to find better designed blogs to be more trustworthy. While content is king, looks matter too. So I know it will be worthwhile for me to learn more about design. Today I decided to explore the topic of color theory.</p>
 
 <p><strong>Disclaimer: The below is an informal argument that does not constitute a real mathematical proof, it’s value is in providing some intuition behind diagonalization.</strong></p>
 
-<h2 id="the_fundamental_theorem_of_color_engineering">The fundamental theorem of color engineering</h2>
+<h2 id="the-fundamental-theorem-of-color-engineering">The fundamental theorem of color engineering</h2>
 
 <p>My brief foray into design has led me to find this commonly held belief in the design community.</p>
 
 <blockquote>
-<p>“A device that is able to reproduce the entire visible color space is an unrealized goal within the engineering of color displays and printing processes”.</p>
+  <p>“A device that is able to reproduce the entire visible color space is an unrealized goal within the engineering of color displays and printing processes”.</p>
 </blockquote>
 
 <p>The above is directly pulled from Wikipedia. Usually I would not attach much thought to such a statement but its formulation reminded me pretty strongly of a type of statement that I’ve encountered when studying the theory of computation.</p>
@@ -115,22 +110,20 @@ mixpanel.track('page viewed', {
 <p>For this blog post I will prove a stronger statement:</p>
 
 <blockquote>
-<p>There cannot exist a device that can reproduce the entire visible color space.</p>
+  <p>There cannot exist a device that can reproduce the entire visible color space.</p>
 </blockquote>
 
-<h2 id="the_godel_escher_and_bach_argument">The Godel, Escher and Bach argument</h2>
+<h2 id="the-godel-escher-and-bach-argument">The Godel, Escher and Bach argument</h2>
 
-<p>I will prove the above statement by reducing it to another statement which was proven to be true in the wonderful <a href="http://www.amazon.com/G%C3%B6del-Escher-Bach-Eternal-Golden/dp/0465026567/ref=sr_1_1?ie=UTF8&qid=1425267550&sr=8-1&keywords=godel+escher+and+bach">Godel, Escher and Bach</a></p>
+<p>I will prove the above statement by reducing it to another statement which was proven to be true in the wonderful <a href="http://www.amazon.com/G%C3%B6del-Escher-Bach-Eternal-Golden/dp/0465026567/ref=sr_1_1?ie=UTF8&amp;qid=1425267550&amp;sr=8-1&amp;keywords=godel+escher+and+bach">Godel, Escher and Bach</a></p>
 
 <blockquote>
-<p>There cannot exist a gramophone that can play any disk</p>
+  <p>There cannot exist a gramophone that can play any disk
+<br />
+Hofstatder lays out a thought experiment where he discusses whether a gramophone that can play any disk could exist in principle. Hofstatder’s argument is an intriguing one. He makes a claim that given such a perfect gramophone he would inspect its inner workings and construct a disk such that when that disk is played, its creases which would typically produce vibrations in the air to create sound, would instead produce vibrations that oscillate at the disk’s resonant frequency, causing the disk to break. Therefore, we’ve shown that for any gramophone there exits a disk that it cannot play. Or in other words, there exists no gramophone that can play any disk.</p>
 </blockquote>
 
-<p><br /></p>
-
-<p>Hofstatder lays out a thought experiment where he discusses whether a gramophone that can play any disk could exist in principle. Hofstatder’s argument is an intriguing one. He makes a claim that given such a perfect gramophone he would inspect its inner workings and construct a disk such that when that disk is played, its creases which would typically produce vibrations in the air to create sound, would instead produce vibrations that oscillate at the disk’s resonant frequency, causing the disk to break. Therefore, we’ve shown that for any gramophone there exits a disk that it cannot play. Or in other words, there exists no gramophone that can play any disk.</p>
-
-<h2 id="the_fundamental_theorem_of_color">The fundamental theorem of color</h2>
+<h2 id="the-fundamental-theorem-of-color">The fundamental theorem of color</h2>
 
 <p>A printer operates in much the similar way: a printer recieves a digital encoding of all colors and positions they should occupy on a sheet of paper. Given the encoding, my idealized theoretical printer vibrates its needle to move to different locations on the page to bring about the miracle of color.</p>
 
@@ -141,24 +134,25 @@ mixpanel.track('page viewed', {
 <p>With this we can finally conclude that:</p>
 
 <blockquote>
-<p>There cannot exist a device that can reproduce the entire visible color space.</p>
+  <p>There cannot exist a device that can reproduce the entire visible color space.</p>
 </blockquote>
 
 <p>In fact we have illustrated something much more powerful:</p>
 
 <blockquote>
-<p>There cannot exist any device that can reproduce the entirety of any space.</p>
+  <p>There cannot exist any device that can reproduce the entirety of any space.</p>
 </blockquote>
 
 <p>And here I leave you with one of the deepest truths uncovered in Mathematics, Gödel’s incompleteness theorem. I’ll prove Gödel’s incompleteness theorem in a formal but easy argument in my next blog post. What we will cover is specifically the process by which we inspect a printer or gramophone to find the respective encodings of color and sound that would cause them to malfunction.</p>
+
     </div>
     <div class="span4">
         <hr>
 <h3>About me</h3>
 <p>
-Hello! I'm Mark and I'm a Program Manager at Microsoft. Most recently, I work in the AI group on smart email. I'm a strong proponent of UI-less products that just work magically. Before that I was a grad student at UC San Diego in ML. I also had stints at NASA's Jet Propulsion Lab in their very first data science team and at UC Berkeley as a transportation engineer.
+Hi! I'm Mark and I'm the founder of Yuri.ai a company that aims to help game developers more easily build intelligent agents in their games. In my past lives I've worked as a researcher, developer and program manager at Microsoft, NASA's JPL, UC Berkeley and UCSD.
 
-In my spare time, I enjoy skiing, climbing, graphic novels, board games and video games.
+In my spare time I enjoy playing video games, board games, electronics and robotics.
 </p>
 
 <hr>
@@ -234,7 +228,7 @@ In my spare time, I enjoy skiing, climbing, graphic novels, board games and vide
 
 <!-- <div id=twitter>
 If you liked this post, you can
-<a href="https://twitter.com/intent/tweet?url=http://www.marksaroufim.com/2015/03/02/color-theory-and-the-theory-of-computation/&text=Color Theory and Theory of Computation&via=MarkSaroufim" 
+<a href="https://twitter.com/intent/tweet?url=http://localhost:4000/2015/03/02/color-theory-and-the-theory-of-computation/&text=Color Theory and Theory of Computation&via=MarkSaroufim" 
    target="_blank">
   share it with your followers</a> 
 or 

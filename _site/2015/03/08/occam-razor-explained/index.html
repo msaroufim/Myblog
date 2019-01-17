@@ -44,13 +44,8 @@ mixpanel.init("0513c7cecbe7663800c58569efbc4275");</script><!-- end Mixpanel -->
 <div align="right">
   <a href="/">Home</a>
   <a href="/archive">Archive</a>
-  <a href="/about">About</a>
-
   <a href= "https://www.linkedin.com/profile/view?id=94048952&trk=nav_responsive_tab_profile" target="_blank">LinkedIn</a>
-  <a href= "https://onedrive.live.com/redir?resid=5A5E73371630DFBB%212500" target="_blank">CV</a>
    <a href= "https://github.com/msaroufim" target="_blank">Github </a>
-  <a href= "https://www.goodreads.com/user/show/35150018-mark-saroufim">Reading List</a>
-  <a href="https://www.youtube.com/watch?v=rdxfx1mM_nU" target="_blank">Standup</a>
   </nav>
 </div>
 <script>
@@ -96,71 +91,114 @@ mixpanel.track('page viewed', {
 
 <div class="row-fluid">
     <div class="span8">
-        <h1 id="occams_razor">Occam’s Razor</h1>
+        <h1 id="occams-razor">Occam’s Razor</h1>
 
-<h2 id="truth_is_found_where_less_assumptions_are_made">Truth is found where less assumptions are made</h2>
+<h2 id="truth-is-found-where-less-assumptions-are-made">Truth is found where less assumptions are made</h2>
 
 <p>One of the cornerstones of Machine Learning is Occam’s Razor. Essentially it’s a principle by which two competing hypotheses about the world may be compared according to their simplicity. An appropriate definition may be lifted off from Wikipedia:</p>
 
 <blockquote>
-<p>The principle states that among competing hypotheses that predict equally well, the one with the fewest assumptions should be selected. Other, more complicated solutions may ultimately prove to provide better predictions, but—in the absence of differences in predictive ability—the fewer assumptions that are made, the better.</p>
+  <p>The principle states that among competing hypotheses that predict equally well, the one with the fewest assumptions should be selected. Other, more complicated solutions may ultimately prove to provide better predictions, but—in the absence of differences in predictive ability—the fewer assumptions that are made, the better.</p>
 </blockquote>
 
 <p>The principle is indeed sensible but I always had a feeling that there must be some basic argument showing why it is indeed better to assume simpler hypothesis when possible. Therefore with what follows I’ll make a simple probabilistic argument that will hopefully show you why Occam’s Razor is indeed a good principle.</p>
 
-<h2 id="truth_is_found_in_likelihood">Truth is found in likelihood</h2>
+<h2 id="truth-is-found-in-likelihood">Truth is found in likelihood</h2>
 
-<p>Suppose I gave you a list of numbers \(D = \{ 16,32,4 \} \) and asked to what hypothesis class do these numbers belong to. In the absence of more information, many valid hypotheses could be formed. You could say:</p>
+<p>Suppose I gave you a list of numbers \(D = \{ 16,32,4 \} \) and asked to what hypothesis class do these numbers belong to. In the absence of more information, many valid hypotheses could be formed.
+You could say:</p>
 
 <ul>
-<li>D belongs to the set containing even numbers</li>
-
-<li>D belongs to the set containing powers of two</li>
-
-<li>D belongs to the set of powers of two under 50</li>
-
-<li>D belongs to the set of even number under 100</li>
+  <li>D belongs to the set containing even numbers</li>
+  <li>D belongs to the set containing powers of two</li>
+  <li>D belongs to the set of powers of two under 50</li>
+  <li>D belongs to the set of even number under 100</li>
 </ul>
 
 <p>While there is seemingly no clear answer, we can do some back of the envelope mathematics to see which of these hypotheses is the most likely. The hypothesis that’s the most likely would be a good candidate for the correct one.</p>
 
 <p>Let’s call the space containing all possible hypotheses \(H \), we will call \(D\) our version space. Now suppose we are trying to find how likely it is that the points in \(D\) belong to some hypothesis \(h \in H\). Well we can formalize this as the probability of \(D\) given the hypothesis \(h\).</p>
 
-<p>\(p(D | h) = \frac{1}{|h|^N} \)</p>
+<table>
+  <tbody>
+    <tr>
+      <td>\(p(D</td>
+      <td>h) = \frac{1}{</td>
+      <td>h</td>
+      <td>^N} \)</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>The above formula is simply making a counting argument where we assume we are drawing \(N \) points from \(h\) with replacement. The probability of drawing any one point from \(h \) is just the inverse of the number of elements in \(h\).</p>
 
 <p>Let’s see how we can use the above formula to compare what’s more likely that \(D \) belong to either one of:</p>
-
 <ul>
-<li>\(h_1 = \{ \) the set of powers of two under 50 \(\}\)</li>
-
-<li>\(h_2 = \{\) the set of even numbers under a 100 \(\} \)</li>
+  <li>\(h_1 = \{ \) the set of powers of two under 50 \(\}\)</li>
+  <li>\(h_2 = \{\) the set of even numbers under a 100 \(\} \)</li>
 </ul>
 
-<p>We just need to compute the size of \(h_i\) and evaluate \(p(D|h_i)\) for all \(i\) in our case \(i = \{1,2 \}\)</p>
+<table>
+  <tbody>
+    <tr>
+      <td>We just need to compute the size of \(h_i\) and evaluate \(p(D</td>
+      <td>h_i)\) for all \(i\) in our case \(i = \{1,2 \}\)</td>
+    </tr>
+  </tbody>
+</table>
 
 <ul>
-<li>\(|h_1| = 5 \) since \(h_1 = \{2,4,8,16,32 \}\) so that \(p(D|h) = \frac{1}{|h_1|^3} = \frac{1}{5}^3 = 0.008 \)</li>
-
-<li>\(|h_2| = 50\) so that \(p(D | h_2) = \frac{1}{50}^3 = 0.000008 \)</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>\(</td>
+          <td>h_1</td>
+          <td>= 5 \) since \(h_1 = \{2,4,8,16,32 \}\) so that \(p(D</td>
+          <td>h) = \frac{1}{</td>
+          <td>h_1</td>
+          <td>^3} = \frac{1}{5}^3 = 0.008 \)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>\(</td>
+          <td>h_2</td>
+          <td>= 50\) so that \(p(D</td>
+          <td>h_2) = \frac{1}{50}^3 = 0.000008 \)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
 </ul>
 
-<p>In short \(h_1\) is \(0.008/0.000008 = 1000 \) times more likely than \(h_2\) and that’s just after observing 3 examples!</p>
+<p>In short \(h_1\) is \(0.008/0.000008 = 1000  \) times more likely than \(h_2\) and that’s just after observing 3 examples!</p>
 
-<p>The difference is even more apparent if our dataset is larger so feel free to evaluate \(p(D|h)\) when \(N = 100\).</p>
+<table>
+  <tbody>
+    <tr>
+      <td>The difference is even more apparent if our dataset is larger so feel free to evaluate \(p(D</td>
+      <td>h)\) when \(N = 100\).</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="epilogue">Epilogue</h2>
 
 <p>Hopefully I’ve given you a taste as to why a likely hypothesis is probably the correct one. Astute readers might have noticed that \(h_1\) highly overfits the data since it’s just a hypothesis that fits exactly the points in \(D\). Suppose we observe a new point 52 then \(h_1\) would no longer fit the data but \(h_2\) still would. There are many tricks employed in Machine Learning to avoid this scenario and hopefully I’ll cover those in another blog post.</p>
+
     </div>
     <div class="span4">
         <hr>
 <h3>About me</h3>
 <p>
-Hello! I'm Mark and I'm a Program Manager at Microsoft. Most recently, I work in the AI group on smart email. I'm a strong proponent of UI-less products that just work magically. Before that I was a grad student at UC San Diego in ML. I also had stints at NASA's Jet Propulsion Lab in their very first data science team and at UC Berkeley as a transportation engineer.
+Hi! I'm Mark and I'm the founder of Yuri.ai a company that aims to help game developers more easily build intelligent agents in their games. In my past lives I've worked as a researcher, developer and program manager at Microsoft, NASA's JPL, UC Berkeley and UCSD.
 
-In my spare time, I enjoy skiing, climbing, graphic novels, board games and video games.
+In my spare time I enjoy playing video games, board games, electronics and robotics.
 </p>
 
 <hr>
@@ -236,7 +274,7 @@ In my spare time, I enjoy skiing, climbing, graphic novels, board games and vide
 
 <!-- <div id=twitter>
 If you liked this post, you can
-<a href="https://twitter.com/intent/tweet?url=http://www.marksaroufim.com/2015/03/08/occam-razor-explained/&text=Occam's Razor&via=MarkSaroufim" 
+<a href="https://twitter.com/intent/tweet?url=http://localhost:4000/2015/03/08/occam-razor-explained/&text=Occam's Razor&via=MarkSaroufim" 
    target="_blank">
   share it with your followers</a> 
 or 

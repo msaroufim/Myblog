@@ -44,13 +44,8 @@ mixpanel.init("0513c7cecbe7663800c58569efbc4275");</script><!-- end Mixpanel -->
 <div align="right">
   <a href="/">Home</a>
   <a href="/archive">Archive</a>
-  <a href="/about">About</a>
-
   <a href= "https://www.linkedin.com/profile/view?id=94048952&trk=nav_responsive_tab_profile" target="_blank">LinkedIn</a>
-  <a href= "https://onedrive.live.com/redir?resid=5A5E73371630DFBB%212500" target="_blank">CV</a>
    <a href= "https://github.com/msaroufim" target="_blank">Github </a>
-  <a href= "https://www.goodreads.com/user/show/35150018-mark-saroufim">Reading List</a>
-  <a href="https://www.youtube.com/watch?v=rdxfx1mM_nU" target="_blank">Standup</a>
   </nav>
 </div>
 <script>
@@ -96,56 +91,52 @@ mixpanel.track('page viewed', {
 
 <div class="row-fluid">
     <div class="span8">
-        <h1 id="what_does_it_mean_to_say_pevent__something_">What does it mean to say \(P(event) = something \)</h1>
+        <h1 id="what-does-it-mean-to-say-pevent--something-">What does it mean to say \(P(event) = something \)</h1>
 
-<p>This blog post is an attempt to explain the following <a href="https://www.dropbox.com/s/zwio6k94ix40q1s/ItsOnlyAGame.pdf">tutorial</a> to a more general audience. I gave that tutorial to explain some of my favorite ideas in the Shafer and Vovk book <a href="http://www.amazon.com/Probability-Finance-Its-Only-Game/dp/0471402265/ref=sr_1_1?ie=UTF8&qid=1424136245&sr=8-1&keywords=probability+and+finance">Probability and Finance, It’s only a Game!</a></p>
+<p>This blog post is an attempt to explain the following <a href="https://www.dropbox.com/s/zwio6k94ix40q1s/ItsOnlyAGame.pdf">tutorial</a> to a more general audience. I gave that tutorial to explain some of my favorite ideas in the Shafer and Vovk book <a href="http://www.amazon.com/Probability-Finance-Its-Only-Game/dp/0471402265/ref=sr_1_1?ie=UTF8&amp;qid=1424136245&amp;sr=8-1&amp;keywords=probability+and+finance">Probability and Finance, It’s only a Game!</a></p>
 
-<h2 id="horse_gambling_games">Horse Gambling Games</h2>
+<h2 id="horse-gambling-games">Horse Gambling Games</h2>
 
 <p>Way before Probability Theory was its own field let alone a field with rigorous foundations, two fairly celebrated mathematicians Pascal and Fermat wanted to win a ton of money betting on horses. Before doing so they of course had to first check whether horse gambling was a fair game. This meant they had to first define what it means for a game to be fair. The definition they came up with involves two parties which we’ll call A and B involved in a zero sum game.</p>
 
 <ul>
-<li>If A pays x$</li>
-
-<li>And B pays x$</li>
-
-<li>The winner gets paid 2x$</li>
+  <li>If A pays x$</li>
+  <li>And B pays x$</li>
+  <li>The winner gets paid 2x$</li>
 </ul>
 
 <p>This definition seems fairly intuitive because we can actually attribute a meaning to the title \(P(event) = something \) by claiming that:</p>
 
 <blockquote>
-<p>P(event) = how much money you’re willing to spend on a game where you could win 1$.</p>
+  <p>P(event) = how much money you’re willing to spend on a game where you could win 1$.</p>
 </blockquote>
 
-<h2 id="mathematization_of_probability_theory">Mathematization of Probability Theory</h2>
+<h2 id="mathematization-of-probability-theory">Mathematization of Probability Theory</h2>
 
 <p>The above definition is indeed intuitive but it hardly seems inline with what we’d imagine a mathematical definition of probability would look like.</p>
 
 <p>Kolmogorov rigorously formalized probability theory using just 6 axioms; what was previously a subfield of mathematical physics became its own deep topic. I might need a whole other blog post on Kolmogorov’s 6 axioms but I’ll mention one small but interesting thing here. The sixth axiom uses what is called the axiom of choice. The axiom of choice is . For our purposes though it would be interesting to explore the possibility of a different foundation to probability theory in games instead of measure theory.</p>
 
-<h2 id="sequential_learning">Sequential Learning</h2>
+<h2 id="sequential-learning">Sequential Learning</h2>
 
 <p>Von Mises was the first to propose that probability theory could find its foundation in games.</p>
 
 <ul>
-<li>Given an observed bit string 001110</li>
-
-<li>What is the probability that the next bit observed is a 1 so that sequence becomes 0011101?</li>
+  <li>Given an observed bit string 001110</li>
+  <li>What is the probability that the next bit observed is a 1 so that sequence becomes 0011101?</li>
 </ul>
 
 <p>The question is meaningful becomes if the length of the string is sufficiently large then we expect that looking at a subset of the strings will give us a statistical estimate of the frequency of each bit.</p>
 
 <p>Fortunately we also have a method of quantifying how random a length \(n \) bitstring is: Kolmogorov Complexity!</p>
 
-<h2 id="a_brief_fugue_into_kolmogorov_complexity">A brief fugue into Kolmogorov Complexity</h2>
+<h2 id="a-brief-fugue-into-kolmogorov-complexity">A brief fugue into Kolmogorov Complexity</h2>
 
 <p>Suppose you’re given two strings:</p>
 
 <ul>
-<li>\(A = 01 01 01 01 01 01 01 \)</li>
-
-<li>\(B = 00 10 01 00 10 11 11 \)</li>
+  <li>\(A = 01 01 01 01 01 01 01 \)</li>
+  <li>\(B = 00 10 01 00 10 11 11 \)</li>
 </ul>
 
 <p>My question is which string looks more random? Well one way to approach this is to see if a string has many repetitions and we notice indeed that \(A \) is simply 01 repeated 7 times so it’s essentially the same message appended to itself 7 times. \(B \) on the other hand seems to lack such a clear looking pattern so we can claim that \(B \) is more random than \(A \).</p>
@@ -154,7 +145,7 @@ mixpanel.track('page viewed', {
 
 <p>If there’s enough interest in the comments I can write a whole other blog post about Kolmogorov complexity and the halting problem but to give you an intuition of what the halting problem is all about: just think about how you’d know in a finite amount of time if something is going to run forever. Turns out computer science has answers to lots of philosophical questions.</p>
 
-<h2 id="the_weak_law_of_large_numbers">The weak law of large numbers</h2>
+<h2 id="the-weak-law-of-large-numbers">The weak law of large numbers</h2>
 
 <p>The weak law of large numbers is generally covered in undergraduate statistics class using measure theoretic tools even though measure theory is outside the scope of many undergraduate programs. But it’s worth going over the “classical” proof to appreciate the game theoretic proof.</p>
 
@@ -162,38 +153,33 @@ mixpanel.track('page viewed', {
 
 <p>The i.i.d assumption part stands for independent and identically ditributed, this assumption is an important one because without it learning seems quite impossible. In the most degenerate case if every random variable depends on every other one and each one has its own distribution it is impossible to generalize any knowledge about the points.</p>
 
-<p>Let us define \(A_n = \frac{X_1 + \dots + X_n}{n} \) to be the average value of the random variables. Then the expected value of \(A_n \) is \(E[A_n] = \frac{n \mu}{n} = \mu \). Similarly \(Var[A_n] = \frac{n \sigma^2}{n^2} = \frac{\sigma^2}{n} \).</p>
+<p>Let us define \(A_n = \frac{X_1 + \dots + X_n}{n} \) to be the average value of the random variables. Then the expected value of \(A_n \) is \(E[A_n] = \frac{n \mu}{n} = \mu \). Similarly \(Var[A_n] = \frac{n \sigma^2}{n^2} = \frac{\sigma^2}{n}   \).</p>
 
 <p>The proof of the weak law of large numbers is then concluded using Chebyshev’s inequality which is simply a formalization of the intuition that rare things happen rarely.</p>
 
-<p>\(P(|A_n - \mu | \geq \epsilon) \leq Var[A_n]/ \sigma^2 = \frac{\sigma^2}{n \epsilon^2} \)</p>
+<p>\(P(|A_n - \mu | \geq \epsilon) \leq Var[A_n]/ \sigma^2 = \frac{\sigma^2}{n \epsilon^2}  \)</p>
 
-<h2 id="bounded_fair_coin_game">Bounded Fair Coin Game</h2>
+<h2 id="bounded-fair-coin-game">Bounded Fair Coin Game</h2>
 
 <p>Now we will instead show how to prove the weak law of large numbers using games instead. We will setup a game between two parties that we will call the skeptic and nature.</p>
 
 <ul>
-<li>\(K_i \) will be the skeptic capital at time \(i \)</li>
-
-<li>\(M_n \) is the amount of tickets that the skeptic purchases</li>
-
-<li>\(x_n \) is the value of a ticket determined by nature</li>
+  <li>\(K_i \) will be the skeptic capital at time \(i \)</li>
+  <li>\(M_n \) is the amount of tickets that the skeptic purchases</li>
+  <li>\(x_n \) is the value of a ticket determined by nature</li>
 </ul>
 
 <p>Now we can finally introduce the game:</p>
 
 <ul>
-<li>\(K_0 = 1 \)</li>
-
-<li>For \(n = 1,2 \dots \):
-<ul>
-<li>Skeptic announces \(M_n \in R \)</li>
-
-<li>Reality announces \(x_n \in {0,1 } \)</li>
-
-<li>\(K_n = K_{n - 1} + M_{n}x_{n} \)</li>
-</ul>
-</li>
+  <li>\(K_0 = 1 \)</li>
+  <li>For \(n = 1,2 \dots \):
+    <ul>
+      <li>Skeptic announces \(M_n \in R \)</li>
+      <li>Reality announces \(x_n \in {0,1 } \)</li>
+      <li>\(K_n = K_{n - 1} + M_{n}x_{n} \)</li>
+    </ul>
+  </li>
 </ul>
 
 <p>What we will prove is that there exists a winning strategy for the skeptic. But first we will use a favorite trick employed by philosophers and first define what we mean by winning. The relationship with the weak law of large numbers will come out soon.</p>
@@ -201,13 +187,12 @@ mixpanel.track('page viewed', {
 <p>We claim that the skeptic wins \(K_n &gt; 0 \) for all \(n \) we call this condition the no-bankruptcy condition. And if one two things happen either:</p>
 
 <ul>
-<li>
-<p>\(\lim_{n \rightarrow \infty} \sum_{i = 1}^{n}x_i = 0 \) Or</p>
-</li>
-
-<li>
-<p>\(\lim_{ \rightarrow \infty} K_n = \infty\)</p>
-</li>
+  <li>
+    <p>\(\lim_{n \rightarrow \infty} \sum_{i = 1}^{n}x_i = 0 \) Or</p>
+  </li>
+  <li>
+    <p>\(\lim_{ \rightarrow \infty} K_n = \infty\)</p>
+  </li>
 </ul>
 
 <p>Everytime an author proposes new definitions, I find it helpful to understand what the equations mean in plain english.</p>
@@ -218,12 +203,12 @@ mixpanel.track('page viewed', {
 
 <p>Note how I use the term arbitrarily instead of the term randomly, this distinction seems pendantic but is quite important. Since randomly means according to some distribution while arbitrarily means there is absolutely no limitation to how a random variable may act.</p>
 
-<h2 id="proving_the_bounded_fair_coin_game">Proving the bounded fair coin game</h2>
+<h2 id="proving-the-bounded-fair-coin-game">Proving the bounded fair coin game</h2>
 
 <p>Now for the proof: If the skeptic bets an infinitely small amount \(\epsilon \) on heads then nature will be forced to not play heads often or else the skeptic will become infinitely rich. Therefore nature will start playing tails, when that happens the skeptic starts playing tails. Essentially this almost silly example provides a proof of concept for machine learning: If nature’s strategy is not completely arbitrary then nature’s strategy has an underlying strategy that can be learnt from data!</p>
 
 <blockquote>
-<p>TLDR: If nature’s strategy is not completely uniform, meaning if nature does not play heads as often as tails then the skeptic can learn nature’s strategy and become infinitely rich by playing an infinite number of rounds.</p>
+  <p>TLDR: If nature’s strategy is not completely uniform, meaning if nature does not play heads as often as tails then the skeptic can learn nature’s strategy and become infinitely rich by playing an infinite number of rounds.</p>
 </blockquote>
 
 <p>And that’s the proof of the weak law of large numbers! We can think of nature as an entity trying to minimize rare events: that’s why there aren’t that many infinitely rich folks out there! (Actually the real proof is slightly more complicated and is covered in my original <a href="https://www.dropbox.com/s/zwio6k94ix40q1s/ItsOnlyAGame.pdf">tutorial</a></p>
@@ -235,14 +220,15 @@ mixpanel.track('page viewed', {
 <h2 id="epilogue">Epilogue</h2>
 
 <p>The efficient market hypothesis is an economic concept that states that it is impossible to consistently achieve better returns than the market. Did we also prove this statement as a corollary?</p>
+
     </div>
     <div class="span4">
         <hr>
 <h3>About me</h3>
 <p>
-Hello! I'm Mark and I'm a Program Manager at Microsoft. Most recently, I work in the AI group on smart email. I'm a strong proponent of UI-less products that just work magically. Before that I was a grad student at UC San Diego in ML. I also had stints at NASA's Jet Propulsion Lab in their very first data science team and at UC Berkeley as a transportation engineer.
+Hi! I'm Mark and I'm the founder of Yuri.ai a company that aims to help game developers more easily build intelligent agents in their games. In my past lives I've worked as a researcher, developer and program manager at Microsoft, NASA's JPL, UC Berkeley and UCSD.
 
-In my spare time, I enjoy skiing, climbing, graphic novels, board games and video games.
+In my spare time I enjoy playing video games, board games, electronics and robotics.
 </p>
 
 <hr>
@@ -318,7 +304,7 @@ In my spare time, I enjoy skiing, climbing, graphic novels, board games and vide
 
 <!-- <div id=twitter>
 If you liked this post, you can
-<a href="https://twitter.com/intent/tweet?url=http://www.marksaroufim.com/2015/02/14/probability-without-measure/&text=Probability without measure theory&via=MarkSaroufim" 
+<a href="https://twitter.com/intent/tweet?url=http://localhost:4000/2015/02/14/probability-without-measure/&text=Probability without measure theory&via=MarkSaroufim" 
    target="_blank">
   share it with your followers</a> 
 or 

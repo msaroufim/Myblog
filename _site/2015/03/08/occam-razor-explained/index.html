@@ -119,16 +119,7 @@ You could say:</p>
 
 <p>Let’s call the space containing all possible hypotheses \(H \), we will call \(D\) our version space. Now suppose we are trying to find how likely it is that the points in \(D\) belong to some hypothesis \(h \in H\). Well we can formalize this as the probability of \(D\) given the hypothesis \(h\).</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>\(p(D</td>
-      <td>h) = \frac{1}{</td>
-      <td>h</td>
-      <td>^N} \)</td>
-    </tr>
-  </tbody>
-</table>
+<script type="math/tex; mode=display">p(D | h) = \frac{1}{|h|^N}</script>
 
 <p>The above formula is simply making a counting argument where we assume we are drawing \(N \) points from \(h\) with replacement. The probability of drawing any one point from \(h \) is just the inverse of the number of elements in \(h\).</p>
 
@@ -138,54 +129,15 @@ You could say:</p>
   <li>\(h_2 = \{\) the set of even numbers under a 100 \(\} \)</li>
 </ul>
 
-<table>
-  <tbody>
-    <tr>
-      <td>We just need to compute the size of \(h_i\) and evaluate \(p(D</td>
-      <td>h_i)\) for all \(i\) in our case \(i = \{1,2 \}\)</td>
-    </tr>
-  </tbody>
-</table>
+<p>We just need to compute the size of <script type="math/tex">h_i</script> and evaluate <script type="math/tex">p(D\|h_i)</script>  for all <script type="math/tex">i</script> in our case <script type="math/tex">i = \{ 1,2 \}</script></p>
 
-<ul>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>\(</td>
-          <td>h_1</td>
-          <td>= 5 \) since \(h_1 = \{2,4,8,16,32 \}\) so that \(p(D</td>
-          <td>h) = \frac{1}{</td>
-          <td>h_1</td>
-          <td>^3} = \frac{1}{5}^3 = 0.008 \)</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>\(</td>
-          <td>h_2</td>
-          <td>= 50\) so that \(p(D</td>
-          <td>h_2) = \frac{1}{50}^3 = 0.000008 \)</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
-</ul>
+<script type="math/tex; mode=display">\|h_1\| = 5, h_1 = \{2,4,8,16,32 \}, p(D|h) = \frac{1}{\|h_1\|^3} = \frac{1}{5}^3 = 0.008</script>
+
+<script type="math/tex; mode=display">\|h_2\| = 50, p(D | h_2) = \frac{1}{50}^3 = 0.000008</script>
 
 <p>In short \(h_1\) is \(0.008/0.000008 = 1000  \) times more likely than \(h_2\) and that’s just after observing 3 examples!</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>The difference is even more apparent if our dataset is larger so feel free to evaluate \(p(D</td>
-      <td>h)\) when \(N = 100\).</td>
-    </tr>
-  </tbody>
-</table>
+<p>The difference is even more apparent if our dataset is larger so try 100 examples next.</p>
 
 <h2 id="epilogue">Epilogue</h2>
 
@@ -196,9 +148,11 @@ You could say:</p>
         <hr>
 <h3>About me</h3>
 <p>
-Hi! I'm Mark and I'm the founder of Yuri.ai a company that aims to help game developers more easily build intelligent agents in their games. In my past lives I've worked as a researcher, developer and program manager at Microsoft, NASA's JPL, UC Berkeley and UCSD.
+<p>Hi! I'm Mark and I'm the founder of <a href="http://yuri.ai">Yuri.ai</a> a company that helps game developers and roboticists easily build intelligent agents. </p>
 
-In my spare time I enjoy playing video games, board games, electronics and robotics.
+<p>In my past lives I've worked as a researcher, developer and program manager at Microsoft, NASA's JPL, UC Berkeley and UC San Diego. </p>
+
+<p>In my spare time I enjoy playing and making video games, board games. </p>
 </p>
 
 <hr>
@@ -246,7 +200,7 @@ In my spare time I enjoy playing video games, board games, electronics and robot
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 
 
-<div>&copy Mark Saroufim 2017 </div> <br>
+<div>&copy Mark Saroufim 2019 </div> <br>
 
 <!-- Add Disqus comments. -->
 <div id="disqus_thread" class="comments"></div>

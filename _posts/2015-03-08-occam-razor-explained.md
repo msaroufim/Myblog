@@ -28,7 +28,7 @@ While there is seemingly no clear answer, we can do some back of the envelope ma
 
 Let's call the space containing all possible hypotheses \\(H \\), we will call \\(D\\) our version space. Now suppose we are trying to find how likely it is that the points in \\(D\\) belong to some hypothesis \\(h \in H\\). Well we can formalize this as the probability of \\(D\\) given the hypothesis \\(h\\). 
 
-\\(p(D | h) = \frac{1}{|h|^N} \\)
+$$p(D | h) = \frac{1}{|h|^N}$$
 
 The above formula is simply making a counting argument where we assume we are drawing \\(N \\) points from \\(h\\) with replacement. The probability of drawing any one point from \\(h \\) is just the inverse of the number of elements in \\(h\\). 
 
@@ -36,14 +36,15 @@ Let's see how we can use the above formula to compare what's more likely that \\
 * \\(h_1 = \\{ \\) the set of powers of two under 50 \\(\\}\\)
 * \\(h_2 = \\{\\) the set of even numbers under a 100 \\(\\} \\)
 
-We just need to compute the size of \\(h_i\\) and evaluate \\(p(D|h_i)\\) for all \\(i\\) in our case \\(i = \\{1,2 \\}\\) 
+We just need to compute the size of $$h_i$$ and evaluate $$p(D\|h_i)$$  for all $$i$$ in our case $$i = \{ 1,2 \}$$
 
-* \\(|h_1| = 5 \\) since \\(h_1 = \\{2,4,8,16,32 \\}\\) so that \\(p(D|h) = \frac{1}{|h_1|^3} = \frac{1}{5}^3 = 0.008 \\)
-* \\(|h_2| = 50\\) so that \\(p(D | h_2) = \frac{1}{50}^3 = 0.000008 \\)
+$$ \|h_1\| = 5, h_1 = \{2,4,8,16,32 \}, p(D|h) = \frac{1}{\|h_1\|^3} = \frac{1}{5}^3 = 0.008 $$
+
+$$\|h_2\| = 50, p(D | h_2) = \frac{1}{50}^3 = 0.000008$$
 
 In short \\(h_1\\) is \\(0.008/0.000008 = 1000  \\) times more likely than \\(h_2\\) and that's just after observing 3 examples!
 
-The difference is even more apparent if our dataset is larger so feel free to evaluate \\(p(D|h)\\) when \\(N = 100\\).
+The difference is even more apparent if our dataset is larger so try 100 examples next.
 
 
 ## Epilogue

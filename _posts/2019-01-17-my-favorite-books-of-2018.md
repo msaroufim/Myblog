@@ -1,10 +1,10 @@
 ---
-title: My favorite books of 2018
+title: My 2 favorite books of 2018
 layout: default
 comments: true
 ---
 
-# My favorite books of 2018
+# My 2 favorite books of 2018
 
 Last year, my two favorite books were surpringly not textbooks. The first one was [Leonardo Da Vinci](https://www.amazon.com/Leonardo-Vinci-Walter-Isaacson/dp/1501139150/ref=sr_1_1?ie=UTF8&qid=1547762166&sr=8-1&keywords=da+vinci+isaacson) the biography of the famous inventor and painter by Walter Isaacson and the second was [Bad Blood](https://www.amazon.com/dp/B078VW3VM7/ref=chrt_bk_rd_nf_12_ci_lp) an investigative report on the shenanigans of a silicon valley startup called Theranos.
 

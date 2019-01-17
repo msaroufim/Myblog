@@ -8,7 +8,7 @@ comments: true
 
 Last year, my two favorite books were surpringly not textbooks. The first one was [Leonardo Da Vinci](https://www.amazon.com/Leonardo-Vinci-Walter-Isaacson/dp/1501139150/ref=sr_1_1?ie=UTF8&qid=1547762166&sr=8-1&keywords=da+vinci+isaacson) the biography of the famous inventor and painter by Walter Isaacson and the second was [Bad Blood](https://www.amazon.com/dp/B078VW3VM7/ref=chrt_bk_rd_nf_12_ci_lp) an investigative report on the shenanigans of a silicon valley startup called Theranos.
 
-The reason I'm bringing up these two books is because usually after reading a great book I'm willed into action. Especially in the case of biographies, I find that it's easier to learn from others' experiences. I ended both books with a strong sense of purpose and I'm sharing my learnings below.
+The reason I'm bringing up these two books is because usually after reading a great book I'm willed into action. Especially in the case of biographies, I find that it's easier to learn from others' experiences.
 
 ## Leonardo Da Vinci
 
@@ -45,4 +45,4 @@ So what's the difference between Holmes and Da Vinci? Da Vinci was fond of parti
 
 > So why will Holmes be remembered as a scam artist and Da Vinci as a genius?
 
-Maybe it's not up to me to judge them but if were to take a stab at why this is the case I would say that oddly enough it's not their intelligence that distinguishes them but their morals and personal goals. Holmes was willing to endanger other people with faulty diagnoses in service of her vision and the cult of her personality. To Holmes, the ends justified the means - she spent little time on actually producing blood testing technology that worked vs the time she spent manipulating public perception. Da Vinci on the other hand prioritized learning and while he did burn much of his patrons funding he was producing research that have benefited many scientific and artistic areas. Da Vinci's ultimate goal wasn't to show others how smart, he just genuinely enjoyed learning
+Maybe it's not up to me to judge them but if were to take a stab at why this is the case I would say that oddly enough it's not their intelligence that distinguishes them but their morals and personal goals. Holmes was willing to endanger other people with faulty diagnoses in service of her vision and the cult of her personality. To Holmes, the ends justified the means - she spent little time on actually producing blood testing technology that worked vs the time she spent manipulating public perception. Da Vinci on the other hand prioritized learning and while he did burn much of his patrons Da Vinci's ultimate goal wasn't to show others how smart he was, he just genuinely enjoyed learning.

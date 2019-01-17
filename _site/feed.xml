@@ -3,8 +3,8 @@
   <channel>
     <title>Mark Saroufim</title>
     <description>My blog about machine learning, technology and philosophy</description>
-    <link>http://localhost:4000</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <link>http://www.marksaroufim.com</link>
+    <atom:link href="http://www.marksaroufim.com/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
         <title>My favorite books of 2018</title>
@@ -15,8 +15,8 @@
 </description>
         
         <pubDate>Thu, 17 Jan 2019 00:00:00 -0800</pubDate>
-        <link>http://localhost:4000/2019/01/17/my-favorite-books-of-2018/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/01/17/my-favorite-books-of-2018/</guid>
+        <link>http://www.marksaroufim.com/2019/01/17/my-favorite-books-of-2018/</link>
+        <guid isPermaLink="true">http://www.marksaroufim.com/2019/01/17/my-favorite-books-of-2018/</guid>
       </item>
     
       <item>
@@ -28,8 +28,8 @@
 </description>
         
         <pubDate>Sat, 03 Oct 2015 00:00:00 -0700</pubDate>
-        <link>http://localhost:4000/2015/10/03/node-in-your-browser/</link>
-        <guid isPermaLink="true">http://localhost:4000/2015/10/03/node-in-your-browser/</guid>
+        <link>http://www.marksaroufim.com/2015/10/03/node-in-your-browser/</link>
+        <guid isPermaLink="true">http://www.marksaroufim.com/2015/10/03/node-in-your-browser/</guid>
       </item>
     
       <item>
@@ -41,8 +41,8 @@
 </description>
         
         <pubDate>Wed, 18 Mar 2015 00:00:00 -0700</pubDate>
-        <link>http://localhost:4000/2015/03/18/alternatives-to-numbers/</link>
-        <guid isPermaLink="true">http://localhost:4000/2015/03/18/alternatives-to-numbers/</guid>
+        <link>http://www.marksaroufim.com/2015/03/18/alternatives-to-numbers/</link>
+        <guid isPermaLink="true">http://www.marksaroufim.com/2015/03/18/alternatives-to-numbers/</guid>
       </item>
     
       <item>
@@ -54,8 +54,8 @@
 </description>
         
         <pubDate>Sun, 08 Mar 2015 00:00:00 -0800</pubDate>
-        <link>http://localhost:4000/2015/03/08/occam-razor-explained/</link>
-        <guid isPermaLink="true">http://localhost:4000/2015/03/08/occam-razor-explained/</guid>
+        <link>http://www.marksaroufim.com/2015/03/08/occam-razor-explained/</link>
+        <guid isPermaLink="true">http://www.marksaroufim.com/2015/03/08/occam-razor-explained/</guid>
       </item>
     
       <item>
@@ -67,8 +67,8 @@
 </description>
         
         <pubDate>Mon, 02 Mar 2015 00:00:00 -0800</pubDate>
-        <link>http://localhost:4000/2015/03/02/color-theory-and-the-theory-of-computation/</link>
-        <guid isPermaLink="true">http://localhost:4000/2015/03/02/color-theory-and-the-theory-of-computation/</guid>
+        <link>http://www.marksaroufim.com/2015/03/02/color-theory-and-the-theory-of-computation/</link>
+        <guid isPermaLink="true">http://www.marksaroufim.com/2015/03/02/color-theory-and-the-theory-of-computation/</guid>
       </item>
     
       <item>
@@ -80,8 +80,8 @@
 </description>
         
         <pubDate>Sat, 14 Feb 2015 00:00:00 -0800</pubDate>
-        <link>http://localhost:4000/2015/02/14/quantum-computers-can-simulate-classical-computers/</link>
-        <guid isPermaLink="true">http://localhost:4000/2015/02/14/quantum-computers-can-simulate-classical-computers/</guid>
+        <link>http://www.marksaroufim.com/2015/02/14/quantum-computers-can-simulate-classical-computers/</link>
+        <guid isPermaLink="true">http://www.marksaroufim.com/2015/02/14/quantum-computers-can-simulate-classical-computers/</guid>
       </item>
     
       <item>
@@ -93,8 +93,8 @@
 </description>
         
         <pubDate>Sat, 14 Feb 2015 00:00:00 -0800</pubDate>
-        <link>http://localhost:4000/2015/02/14/probability-without-measure/</link>
-        <guid isPermaLink="true">http://localhost:4000/2015/02/14/probability-without-measure/</guid>
+        <link>http://www.marksaroufim.com/2015/02/14/probability-without-measure/</link>
+        <guid isPermaLink="true">http://www.marksaroufim.com/2015/02/14/probability-without-measure/</guid>
       </item>
     
       <item>
@@ -106,8 +106,8 @@
 </description>
         
         <pubDate>Sat, 15 Nov 2014 00:00:00 -0800</pubDate>
-        <link>http://localhost:4000/2014/11/15/scifi-and-predicting-the-future/</link>
-        <guid isPermaLink="true">http://localhost:4000/2014/11/15/scifi-and-predicting-the-future/</guid>
+        <link>http://www.marksaroufim.com/2014/11/15/scifi-and-predicting-the-future/</link>
+        <guid isPermaLink="true">http://www.marksaroufim.com/2014/11/15/scifi-and-predicting-the-future/</guid>
       </item>
     
   </channel>

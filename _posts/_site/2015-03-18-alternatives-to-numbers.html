@@ -1,0 +1,93 @@
+<h1 id="alternative-numbering-schemes">Alternative Numbering Schemes</h1>
+
+<p>Today’s post will be a short one, I recently bought a copy of <a href="http://www.amazon.com/Little-Schemer-Daniel-P-Friedman/dp/0262560992/ref=sr_1_1?ie=UTF8&amp;qid=1426735911&amp;sr=8-1&amp;keywords=the+little+schemer">The Little Schemer</a> and have had a really fun experience with it. The Little Schemer introduces many deep mathematical ideas in a concise Socratic treatment. I enjoyed many sections of the book but chose to comment briefly on just one.</p>
+
+<h2 id="representations-what-are-numbers">Representations (What are numbers?)</h2>
+
+<p>Depending on who you ask you might get a different answer. In the first corner, we have Intuitionists who claim that mathematical constructions including numbers are abstract entities. An Intuitionist would for instance claim that there is no such thing as a true infinity and that things merely appear infinite to us if they are large enough.</p>
+
+<p>In the second corner, we have Platonists who espouse the falsehood of assuming that perception and the object of perception are the same. A chair is not the same thing as the mental image of a chair and it often proves useful to dissociate our own perceptions of truth from Mathematics. It might have been obvious to the human race at some point that the sun spins around the earth since that is what people observed by looking at the sky.</p>
+
+<blockquote>
+  <p>Q: So what’s a number?</p>
+</blockquote>
+
+<blockquote>
+  <p>A: Umm 0,1,2,3,4…</p>
+</blockquote>
+
+<p>That’s not a bad attempt: we have symbols that correspond to different quantities. The 3 dots tell us that there are many more symbols and that starting at 0 we can generate all quantities by repeatedly adding 1.</p>
+
+<p>Let’s try something else</p>
+
+<blockquote>
+  <p>Q: What’s a number?</p>
+</blockquote>
+
+<blockquote>
+  <p>A: (), (()), ((),()),((),(),())</p>
+</blockquote>
+
+<blockquote>
+  <p>Q: wat?</p>
+</blockquote>
+
+<p>So what’s going on here is we’ve simply picked different symbols for our numbering scheme: instead of using the integers we instead use a list where the number of empty lists corresponds to our quantities. So (()) corresponds to 1 and ((),()) corresponds to two.</p>
+
+<h2 id="implementing-an-alternative-numbering-scheme-in-scheme">Implementing an alternative numbering scheme in Scheme</h2>
+
+<p>To show that I am not in fact rambling over trivialities, I will show you how to implement addition using our parenthesis based numbering scheme. But first we’ll build up the helper functions we’ll need to perform addition.</p>
+
+<blockquote>
+  <p>Q: How would you test for zero?</p>
+</blockquote>
+
+<blockquote>
+  <p>A: Test if the list is null</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define</span> <span class="nv">sero?</span>
+    <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">n</span><span class="p">)</span>
+    <span class="p">(</span><span class="nb">null?</span> <span class="nv">n</span><span class="p">)))</span></code></pre></figure>
+
+<blockquote>
+  <p>Q: How would you add 1 to a number</p>
+</blockquote>
+
+<blockquote>
+  <p>A: Prepend () to it</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define</span> <span class="nv">edd1</span>
+    <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">n</span><span class="p">)</span>
+    <span class="p">(</span><span class="nb">cons</span> <span class="p">(</span><span class="k">quote</span> <span class="p">())</span> <span class="nv">n</span><span class="p">)))</span></code></pre></figure>
+
+<blockquote>
+  <p>Q: How would you subtract one?</p>
+</blockquote>
+
+<blockquote>
+  <p>A: Remove one ()</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define</span> <span class="nv">zub1</span>
+    <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">n</span><span class="p">)</span>
+        <span class="p">(</span><span class="nb">cdr</span> <span class="nv">n</span><span class="p">)))</span></code></pre></figure>
+
+<blockquote>
+  <p>Q: How would you add two numbers n and m?</p>
+</blockquote>
+
+<blockquote>
+  <p>A: Add 1 to n, m times</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define</span> <span class="nv">+</span>
+    <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">n</span> <span class="nv">m</span><span class="p">)</span>
+        <span class="p">(</span><span class="k">cond</span>
+            <span class="p">((</span><span class="nf">sero?</span> <span class="nv">m</span><span class="p">)</span> <span class="nv">n</span><span class="p">)</span>
+            <span class="p">(</span><span class="k">else</span> <span class="p">(</span><span class="nf">edd1</span> <span class="p">(</span><span class="nb">+</span> <span class="nv">n</span> <span class="p">(</span><span class="nf">zub1</span> <span class="nv">m</span><span class="p">)))))))</span></code></pre></figure>
+
+<h2 id="epilogue">Epilogue</h2>
+
+<p>This is a simple yet neat application showing why we shouldn’t attach much importance to our numbering scheme. This idea is familiar to most computer scientists since they are used to working in different numerical bases.</p>

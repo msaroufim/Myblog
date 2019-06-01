@@ -7,6 +7,19 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Representation Theory for Robotics</title>
+        
+        
+          <description>&lt;p&gt;Work in Progress&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 29 May 2019 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/2019/05/29/representation-theory-for-robotics/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/05/29/representation-theory-for-robotics/</guid>
+      </item>
+    
+      <item>
         <title>Controlling a 2D robot arm with deep reinforcement learning and Floydhub</title>
         
         

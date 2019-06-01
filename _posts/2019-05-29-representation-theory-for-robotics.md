@@ -10,9 +10,7 @@ This goal of this post is to teach you how to efficiently represent the state of
 
 > So how can we RL on a budget?
 
-## A simple example
-
-### Pixel based reprentations
+## Pixel based reprentations
 Let's pick a simple example, try out different representations and compare them.
 
 Suppose you have a 2d robot arm which is made up of two limbs and the goal is to reach a red ball.
@@ -92,8 +90,8 @@ World models have recently become more fashionable and I personally find them to
 
 Specifically we'll be talking about forward and reverse models
 
-1. Forward model: \\ sˆt+1 = f(s_t, a_t; θ)\\
-2. Reverse model: \\a_t = g(s_t,st_t+1 | )\\
+1. Forward model: \\(sˆ{t+1} = f(s_t, a_t; θ) \\)
+2. Reverse model: \\(a_t = g(s_t,st_t+1) \\)
 
 Both kinds of models can be learned in the same manner using an autoencoder. The beautiful thing about the Reinforcement Learning setting is that we can generate our data, so what an autoencoder effectively does is try to guess what the next state will be in the case of the forward model or which action was made to end up in some state in the case of the reverse model and its guess can be corrected by what actually ends up happening. 
 
@@ -101,7 +99,7 @@ Both kinds of models can be learned in the same manner using an autoencoder. The
 
 We can compress the world by deciding on the dimensionality of the output. We learn the weights of the autoencoder using your favorite gradient descent method where we're minimizing in the standard manner \\f(\hat{y}, y)\\.
 
-#### Biasing world models
+### Biasing world models
 Reward functions from RL can be used as an additional signal but are not strictly necessary. What makes it compelling though is that we can bias our world models  in multiple ways to make them more robust and useful to us. Some examples are:
 * Slowness: Small changes in state locally
 * Variability: Representation should spend more space describing moving objects
@@ -120,9 +118,9 @@ I'm planning on writing more about this in an upcoming blog post so stay tuned i
 If you've found this post useful and would like to cite it in your work please use the following
 
 
-{% highlight %}
+{% highlight scheme %}
 
-@misc{OpenSourceSurvey17,
+@misc{MSRTR,
   author = {Mark Saroufim},
   title = {A survey of Representation Theory for Robotics},
   year = {2019},

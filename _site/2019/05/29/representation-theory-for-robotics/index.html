@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- start Mixpanel --><script type="text/javascript">(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+mixpanel.init("0513c7cecbe7663800c58569efbc4275");</script><!-- end Mixpanel -->
+  <head>
+
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <script type="text/javascript" src="../_site/js/helper.js"></script>
+
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<link rel="stylesheet" href="/css/syntax.css">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link href="/css/custom.css" rel="stylesheet">
+
+    <meta charset="utf-8">
+    <title>Mark Saroufim</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="My blog about machine learning, technology and philosophy">
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+<nav class="main-nav">
+<div align="right">
+  <a href="/">Home</a>
+  <a href="/archive">Archive</a>
+  <a href= "https://www.linkedin.com/in/marksaroufim/" target="_blank">LinkedIn</a>
+   <a href= "https://github.com/msaroufim" target="_blank">Github </a>
+   <a href="https://twitter.com/MarkSaroufim" target="_blank">Twitter</a>
+  </nav>
+</div>
+<script>
+mixpanel.track('page viewed', {
+    'page name' : document.title,
+    'url' : window.location.pathname
+});
+
+</script>
+
+<hr>
+
+<!--
+<div id="mark" style="width:20%">
+<h1>Mark Saroufim</h1>
+
+ <img class="avatar" src="http://s21.postimg.org/l7czx6puv/avatar.jpg"></img>
+</div>
+</aside>
+ -->
+   <!--  <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Mark Saroufim</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li class="active"><a href="/archive">Archive</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="container" style="width:80%">
+
+
+
+<div class="row-fluid">
+    <div class="span8">
+        <p>Work in Progress</p>
+
+<h1 id="representation-theory-for-robotics">Representation Theory for Robotics</h1>
+<p>This goal of this post is to teach you how to efficiently represent the state of a robot with as little memory as possible. The primary application of this is that we can then train Reinforcement Learning (RL) algorithms orders of magnitude faster. One of the main reasons isn’t the de facto standard in industrial applications is that the sample complexity i.e: the number of runs an agent needs to do is still prohibitive.</p>
+
+<blockquote>
+  <p>So how can we RL on a budget?</p>
+</blockquote>
+
+<h2 id="pixel-based-reprentations">Pixel based reprentations</h2>
+<p>Let’s pick a simple example, try out different representations and compare them.</p>
+
+<p>Suppose you have a 2d robot arm which is made up of two limbs and the goal is to reach a red ball.</p>
+
+<p>A trivial representation is all the pixels on the screen. The goal then becomes given all the pixels on the screen what should the agent do next to maximize its reward?</p>
+
+<p>Let’s assume the area of an image is 100x100px. The total size of the state is then 100x100x3x255.</p>
+
+<p>Unfortunately that doesn’t even work. The issue with it that given a photograph you don’t know which motion led you there. Let’s say we’re trying to teach an agent how to play Super Mario Bros and we took a snapshot of Mario in the air. How do you know whether he’s jumping or falling?</p>
+
+<p>To solve this issue pixel based representations will stack several frames on top of each other. Theoretically you would only need 2 frames but in practice I’ve seen 4 be a lot more common.</p>
+
+<p>Damn! So now we have a state space of size 100x100x3x255*40 which is kind of insane when you stop and think about it.</p>
+
+<blockquote>
+  <p>OK so what can we do to make the state space smaller for pixel based representations?</p>
+</blockquote>
+
+<p>Turns out there’s a bunch of good ideas used in practice</p>
+<ol>
+  <li>Crop world to only include salient information. If we were to look at the tensor representation of our world, you’d notice most of it would be just 1 corresponding. Cropping litterally corresponds to taking the center part of the tensor representing the world</li>
+  <li>Grayscale the world. We don’t need all 3 RGB channels. The red goal could be identified as a circle as a circle instead so the color isn’t essential information to the task. We grayscale by averaging all 3 RGB values of a pixel.</li>
+  <li>Experiment with just stacking 2 frames vs 3 vs more and see what actually works best on your specific problem</li>
+  <li>Similar idea to grayscale is to use some sort of filter as a preprocessing step for e.g an edge detector which should again make your state tensor sparser</li>
+</ol>
+
+<blockquote>
+  <p>So should we just use pixel based representations?</p>
+</blockquote>
+
+<p>No, but they’re good as a baseline since you don’t need to create any sort of domain specific logic. While pixel representations are trivial to work with and work for games like Atari games. They are incredibly inneficient because of how large they are. Tricks help to an extent but are a symptom that maybe we’re not working with the right representation.</p>
+
+<blockquote>
+  <p>So the next natural question is what is a better representation? Which brings us to Model based representations.</p>
+</blockquote>
+
+<h2 id="model-based-representations">Model based representations</h2>
+<p>Let’s go back to our 2d robot arm example. You’ll notice that it consists of 2 rectangles on an xy plane and there’s a goal represented as a circle.</p>
+
+<p>So a first step to represent this could be the 4 corners of each rectangle and the center of the circle with its radius that gives us</p>
+<ol>
+  <li>8 points total for the rectangles with each point represented as 2 values one for the x coordinate and another for the y coordinate</li>
+  <li>2 values for the circle center and one value for the radius</li>
+</ol>
+
+<p>Summing everything up we can represent a given state for this 2d robot arm with 19 values. Not too bad.</p>
+
+<blockquote>
+  <p>But wait a minute, how do you represent velocities?</p>
+</blockquote>
+
+<p>Well in this case we need exactly 2 frames only since we can deduce the velocity of an arm by looking at how much it moves within 1 frame and as long as acceleration is constant we should be good to go.</p>
+
+<blockquote>
+  <p>Can we do better than 19 values?</p>
+</blockquote>
+
+<p>We can reprent the rectangles in an alternate way. As opposed to representing a rectangle as 4 points we can represent it instead as</p>
+<ol>
+  <li>The center of the rectangle. 1 point so 2 values</li>
+  <li>The height and width of the rectangle so 2 values</li>
+  <li>A rotation which is just 1 value for the angle</li>
+</ol>
+
+<p>Summing everything up we can represent each rectangle with 5 values instead of 8 so we can represent the entire state of the world with 13 values instead of 19.</p>
+
+<blockquote>
+  <p>Can we do better?</p>
+</blockquote>
+
+<p>Maybe but it does feel like we’re getting into some weird algebraic territory here.</p>
+
+<blockquote>
+  <p>Can’t I just use some algorithm to learn the best representation for me?</p>
+</blockquote>
+
+<p>Glad you asked, let’s move on.</p>
+
+<h2 id="learning-a-state-representation">Learning a state representation</h2>
+<p>One of the challenges with creating our own representation is that we need a lot of domain knowledge around what constitutes a good representation, which features are important and which are not for the task at hand.</p>
+
+<p>Techniques for learning state representations fall into two major buckets</p>
+<ol>
+  <li>Compression</li>
+  <li>World models</li>
+</ol>
+
+<p>Regardless of which method you use the way to best evaluate it is to see how well your agent does on the full task while only being trained on the learned state representation. There are other evaluation techniques that try to make sure that the geometric properties of the space are “nice” so we are seeing a resurgence of interest in techniques that measure the quality of embeddings.</p>
+
+<h3 id="compression-for-state-representations">Compression for state representations</h3>
+<p>The idea here is a simple one. Take any model based or pixel based state representation and run it through an algorithm like PCA or your other favorite dimensionality reduction algorithm.</p>
+
+<p>In the case of PCA for e.g, you can decide how many dimensions your state should have. It’s unclear how much you could compress a priori but the best way to do it is to just benchmark it. As in try PCA with output dimensions of 2, 3, 4, 5… and see how well your agent trained on this compressed representation does on the full task at hand.</p>
+
+<h3 id="world-models">World models</h3>
+<p>World models have recently become more fashionable and I personally find them to be an extremely exciting research development. The main idea is that we can learn via gradient descent a compressed representation by backpropagating an error between how we predict the world will act and how it actually did.</p>
+
+<p>Specifically we’ll be talking about forward and reverse models</p>
+
+<ol>
+  <li>Forward model: \(sˆ{t+1} = f(s_t, a_t; θ) \)</li>
+  <li>Reverse model: \(a_t = g(s_t,st_t+1) \)</li>
+</ol>
+
+<p>Both kinds of models can be learned in the same manner using an autoencoder. The beautiful thing about the Reinforcement Learning setting is that we can generate our data, so what an autoencoder effectively does is try to guess what the next state will be in the case of the forward model or which action was made to end up in some state in the case of the reverse model and its guess can be corrected by what actually ends up happening.</p>
+
+<blockquote>
+  <p>Whoah man…</p>
+</blockquote>
+
+<p>We can compress the world by deciding on the dimensionality of the output. We learn the weights of the autoencoder using your favorite gradient descent method where we’re minimizing in the standard manner \f(\hat{y}, y)\.</p>
+
+<h3 id="biasing-world-models">Biasing world models</h3>
+<p>Reward functions from RL can be used as an additional signal but are not strictly necessary. What makes it compelling though is that we can bias our world models  in multiple ways to make them more robust and useful to us. Some examples are:</p>
+<ul>
+  <li>Slowness: Small changes in state locally</li>
+  <li>Variability: Representation should spend more space describing moving objects</li>
+  <li>Proportionality: state changes by roughly same magnitude for any action</li>
+  <li>Repeatability: making the same change to same state should result in the same state</li>
+</ul>
+
+<h2 id="next-steps">Next steps</h2>
+<p>For the most part in this blog post we’ve focused on how to get small representations for more efficient learning but there are other worthwhile goals to accomplish. For example, some representations do not have singularities in them which makes training a Reinforcement Learning algorithm on them more stable and this can be reasoned through using some tools from perturbation analysis and chaos theory. Another idea is to use representations which encode some symbolic reasoning but as far as I’m concerned that idea is less proven in practice.</p>
+
+<p>I’m planning on writing more about this in an upcoming blog post so stay tuned if you’ve enjoyed this one and as always feel free to email me with questions</p>
+
+<h2 id="bixtex">BixTex</h2>
+
+<p>If you’ve found this post useful and would like to cite it in your work please use the following</p>
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme">@misc{MSRTR,
+  author = {Mark Saroufim},
+  title = {A survey of Representation Theory for Robotics},
+  year = {2019},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/msaroufim}
+}</code></pre></figure>
+
+
+    </div>
+    <div class="span4">
+        <hr>
+<h3>About me</h3>
+<p>
+<p>Hi! I'm Mark and I'm the founder of <a href="http://yuri.ai">yuri.ai</a> a tool that helps game developers and roboticists easily build intelligent agents. </p>
+
+<p>I'm fairly active on Twitter and Github so follow me there!</p>
+
+<p>In my past lives I've worked as a researcher, developer and program manager at Microsoft AI and Researcher, NASA's Jet Propulsion Lab, UC Berkeley and UC San Diego. </p>
+
+<p>In my spare time, I enjoy playing and making video games.</p>
+</p>
+
+<hr>
+<h3>Latest Posts</h3>
+<ul>
+  
+    <li><a href="/2019/05/29/representation-theory-for-robotics/">Representation Theory for Robotics</a></li>
+  
+    <li><a href="/2019/02/15/controlling-a-2d-robot-arm-with-deep-reinforcement-learning-and-Floydhub/">Controlling a 2D robot arm with deep reinforcement learning and Floydhub</a></li>
+  
+    <li><a href="/2019/01/17/my-favorite-books-of-2018/">My 2 favorite books of 2018</a></li>
+  
+    <li><a href="/2015/10/03/node-in-your-browser/">node.js in your browser</a></li>
+  
+    <li><a href="/2015/03/18/alternatives-to-numbers/">Alternative Numbering Schemes</a></li>
+  
+</ul>
+<br>
+<br>
+
+    </div>
+</div>
+
+
+
+
+<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script> -->
+
+
+<div>&copy Mark Saroufim 2019 </div> <br>
+</div>
+
+  </body>
+</html>
+
+
+
+
+<!-- <div id=twitter>
+If you liked this post, you can
+<a href="https://twitter.com/intent/tweet?url=http://localhost:4000/2019/05/29/representation-theory-for-robotics/&text=Representation Theory for Robotics&via=MarkSaroufim" 
+   target="_blank">
+  share it with your followers</a> 
+or 
+<a href="https://twitter.com/MarkSaroufim">
+  follow me on Twitter</a>!
+
+</div> -->
+

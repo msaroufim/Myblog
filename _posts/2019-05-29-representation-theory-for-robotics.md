@@ -90,8 +90,8 @@ World models have recently become more fashionable and I personally find them to
 
 Specifically we'll be talking about forward and reverse models
 
-1. Forward model: \\(sˆ{t'} = f(s_t, a_t; θ) \\)
-2. Reverse model: \\(a_t = g(s_t,s_t_{t'}) \\)
+1. Forward model: \\(s_t' = f(s_t, a_t; θ) \\)
+2. Reverse model: \\(a_t = g(s_t, s_t'; θ) \\)
 
 Both kinds of models can be learned in the same manner using an autoencoder. The beautiful thing about the Reinforcement Learning setting is that we can generate our data, so what an autoencoder effectively does is try to guess what the next state will be in the case of the forward model or which action was made to end up in some state in the case of the reverse model and its guess can be corrected by what actually ends up happening. 
 

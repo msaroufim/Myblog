@@ -199,8 +199,8 @@ mixpanel.track('page viewed', {
 <p>Specifically we’ll be talking about forward and reverse models</p>
 
 <ol>
-  <li>Forward model: \(sˆ{t+1} = f(s_t, a_t; θ) \)</li>
-  <li>Reverse model: \(a_t = g(s_t,st_t+1) \)</li>
+  <li>Forward model: \(sˆ{t’} = f(s_t, a_t; θ) \)</li>
+  <li>Reverse model: \(a_t = g(s_t,s_t_{t’}) \)</li>
 </ol>
 
 <p>Both kinds of models can be learned in the same manner using an autoencoder. The beautiful thing about the Reinforcement Learning setting is that we can generate our data, so what an autoencoder effectively does is try to guess what the next state will be in the case of the forward model or which action was made to end up in some state in the case of the reverse model and its guess can be corrected by what actually ends up happening.</p>
@@ -291,7 +291,7 @@ mixpanel.track('page viewed', {
 
 <!-- <div id=twitter>
 If you liked this post, you can
-<a href="https://twitter.com/intent/tweet?url=http://localhost:4000/2019/05/29/representation-theory-for-robotics/&text=Representation Theory for Robotics&via=MarkSaroufim" 
+<a href="https://twitter.com/intent/tweet?url=http://www.marksaroufim.com/2019/05/29/representation-theory-for-robotics/&text=Representation Theory for Robotics&via=MarkSaroufim" 
    target="_blank">
   share it with your followers</a> 
 or 
